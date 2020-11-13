@@ -27,4 +27,4 @@ source("./example.R")
 
 # Qustions
 
-Please contact [13023988263@163.com](mailto:13023988263@163.com). or [ele717@163.com](mailto:ele717@163.com) with any questions about the PRIME method.
+Please contact [13023988263@163.com](mailto:13023988263@163.com) or [ele717@163.com](mailto:ele717@163.com) with any questions about the PRIME method.
