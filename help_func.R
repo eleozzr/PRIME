@@ -2,6 +2,9 @@
 #Update: 2020.11.12
 #function includes: kern_fun, indx_comp, kern_ilse, kern_rds, est_fun
 #Contact: 13023988263@163.com (Zishu Zhan), ele717@163.com (Xiangjie Li)
+#Author: Zishu Zhan
+#Update: 2020.11.12
+#function includes: kern_fun, indx_comp, kern_ilse, kern_prime, est_fun
 
 library(MASS)
 library(misaem)
@@ -100,7 +103,7 @@ geo_mean <- function(data){
   return(gm)
 }
 
-# kern_rds function is used to get the imputation results by PRIME
+# kern_prime function is used to get the imputation results by PRIME
 kern_prime <- function (ind, Xmat, Y, IDX, bw, k.type = NULL, K, bw.type) 
 {
   Sigma <- diag(rep(1,p))
@@ -191,8 +194,7 @@ est_fun <- function (Y, X, func, bw = NULL, intercept = F, k.type = NULL, K=NULL
   bw <- ifelse(bw > 1, bw, 1)
   beta <- cc.coef
   Bmat <- beta
-  rss <- rss.old <- sqrt(sum((Y - Xmat0 %*% matrix(beta, p, 
-                                                   1))^2))
+  rss <- rss.old <- sqrt(sum((Y - Xmat0 %*% matrix(beta, p, 1))^2))
   k <- 0
   if (infor_output == T) {
     cat("iter:", k, "d.fn:", NA, "d.par:", 
@@ -259,7 +261,7 @@ est_fun <- function (Y, X, func, bw = NULL, intercept = F, k.type = NULL, K=NULL
     #W <- Xmat0 %*% beta
     Z1 <- X
     for (i in NA_ind) {
-      temp_Z1 <- kern_rds(ind = i, Xmat = X, 
+      temp_Z1 <- kern_prime(ind = i, Xmat = X, 
                           Y = Y, IDX = IDX, bw = bw, k.type = k.type, K = K, 
                           bw.type = "fix.bw")
       if (is.null(temp_Z1)) {
@@ -304,4 +306,3 @@ est_fun <- function (Y, X, func, bw = NULL, intercept = F, k.type = NULL, K=NULL
                             feps = feps, infor_output = infor_output))
   return(res)
 }
-
