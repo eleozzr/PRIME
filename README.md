@@ -1,6 +1,6 @@
 <!-- PRIME -->
 
-# Projective Resampling Imputation Estimation Method for Missing Covariates Problems
+# Partial replacement imputation estimation for partially linear models with complex missing pattern covariates
 
 In this work, motivated by the spirit of projection resampling/random projection, we propose a Projection
 Resampling Imputation Mean Estimation (PRIME) to project the covariates along randomly sampled
@@ -28,3 +28,7 @@ source("./example.R")
 # Qustions
 
 Please contact [13023988263@163.com](mailto:13023988263@163.com) or [ele717@163.com](mailto:ele717@163.com) with any questions about the PRIME method.
+
+# Reference
+Zhan, Z., Li, X. & Zhang, J. Partial replacement imputation estimation for partially linear models with complex missing pattern covariates. Stat Comput 33, 88 (2023). https://doi.org/10.1007/s11222-023-10258-8
+
